@@ -24,6 +24,7 @@ find_package(catkin REQUIRED COMPONENTS roscpp rostime std_msgs sensor_msgs mess
 ## System dependencies are found with CMake's conventions
 find_package(OpenCV REQUIRED)
 find_package(OpenMP)
+find_package(Eigen3)
 find_package(PCL 1.7 REQUIRED)
 
 if(OPENMP_FOUND)
@@ -65,6 +66,7 @@ add_custom_target(additional_files_${PROJECT_NAME}
 include_directories(include
   ${catkin_INCLUDE_DIRS}
   ${OpenCV_INCLUDE_DIRS}
+  ${EIGEN3_INCLUDE_DIR}
   ${PCL_INCLUDE_DIRS}
   ${kinect2_bridge_INCLUDE_DIRS}
 )
@@ -73,6 +75,7 @@ add_executable(kinect2_viewer src/viewer.cpp)
 target_link_libraries(kinect2_viewer
   ${catkin_LIBRARIES}
   ${OpenCV_LIBRARIES}
+  ${EIGEN3_LIBRARIES}
   ${PCL_LIBRARIES}
   ${kinect2_bridge_LIBRARIES}
 )
