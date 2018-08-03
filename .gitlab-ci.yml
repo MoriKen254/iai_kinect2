@@ -1,4 +1,4 @@
-mage: ros:indigo-ros-core
+image: ros:indigo-ros-core
 
 variables:
   ROS_PACKAGES_TO_INSTALL: ""
@@ -6,9 +6,8 @@ variables:
 before_script:
   - git clone https://gitlab.com/VictorLamoine/ros_gitlab_ci.git
   - source ros_gitlab_ci/gitlab-ci.bash >/dev/null
-#  - ../.preprocess.sh
 
 catkin_make:
   stage: build
   script:
-    - catkin_make
+    - catkin_make:
