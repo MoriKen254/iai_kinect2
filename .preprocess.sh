@@ -1,3 +1,4 @@
+PWD_DIR=$(pwd)
 echo "***************************************"
 echo "*****         for freenect        *****"
 echo "***************************************"
@@ -45,3 +46,41 @@ echo "***** ls *****"
 ls
 echo "***** gdebi pcl_1.8.1-1_amd64.deb *****"
 yes | gdebi pcl_1.8.1-1_amd64.deb
+
+
+echo "***************************************"
+echo "*****       Apply Lib Pkgs        *****"
+echo "***************************************"
+echo "***** echo CPATH *****"
+echo $CPATH
+echo "***** export CPATH=/usr/include:/usr/include/eigen3:/usr/local/include:CPATH *****"
+export CPATH=/usr/include:/usr/include/eigen3:/usr/local/include:$CPATH
+echo "***** echo CPATH *****"
+echo $CPATH
+echo "---------------------------------------"
+echo "***** echo C_INCLUDE_PATH *****"
+echo $C_INCLUDE_PATH
+echo "***** export C_INCLUDE_PATH=/usr/include:/usr/include/eigen3:/usr/local/include:C_INCLUDE_PATH *****"
+export C_INCLUDE_PATH=/usr/include:/usr/include/eigen3:/usr/local/include:$C_INCLUDE_PATH
+echo "***** echo C_INCLUDE_PATH *****"
+echo $C_INCLUDE_PATH
+echo "---------------------------------------"
+echo "***** echo CPLUS_INCLUDE_PATH *****"
+echo $CPLUS_INCLUDE_PATH
+echo "***** export CPLUS_INCLUDE_PATH=/usr/include:/usr/include/eigen3:/usr/local/include:CPLUS_INCLUDE_PATH *****"
+export CPLUS_INCLUDE_PATH=/usr/include:/usr/include/eigen3:/usr/local/include:$CPLUS_INCLUDE_PATH
+echo "***** echo CPLUS_INCLUDE_PATH *****"
+echo $CPLUS_INCLUDE_PATH
+echo "---------------------------------------"
+echo "***** echo LD_LIBRPWD_DIR=$(pwd)ARY_PATH *****"
+echo $LD_LIBRARY_PATH
+echo "***** export LD_LIBRARY_PATH=/usr/local/lib:usr/lib:LD_LIBRARY_PATH *****"
+export LD_LIBRARY_PATH=/usr/local/lib:usr/lib:$LD_LIBRARY_PATH
+echo "***** echo LD_LIBRARY_PATH *****"
+echo $LD_LIBRARY_PATH
+echo "---------------------------------------"
+echo "***** ldconfig *****"
+ldconfig
+echo "***** ldconfig -p *****"
+ldconfig -p
+cd ${PWD_DIR}
