@@ -10,4 +10,4 @@ before_script:
 catkin_make:
   stage: build
   script:
-    - catkin_make:
+    - catkin_make
